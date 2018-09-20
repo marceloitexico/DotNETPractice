@@ -19,12 +19,19 @@ namespace DotNETPractice
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            /*config.Routes.MapHttpRoute(
+               name: "GetScotts",
+               routeTemplate: "api/{controller}/GetScotts",
+               defaults: new { controller = "Student", action = "GetScotts", id = RouteParameter.Optional }
 
+           );*/
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
+
         }
     }
 }

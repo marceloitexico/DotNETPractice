@@ -17,8 +17,8 @@ namespace EFCodeFirstTest.Helpers
         {
             var data = new List<Student>
             {
-                new Student {ID = 1, FirstMidName = "Nathan", LastName = "Eldridge", EmailAddress  = "neldridge@domain.com",  EnrollmentDate = new DateTime(2018,2,20)},
-                new Student {ID = 2, FirstMidName = "Samir", LastName = "Lakhani", EmailAddress  = "slakhani@domain.com" ,  EnrollmentDate = new DateTime(2018,3,21)},
+                new Student {ID = 1, FirstMidName = "Scott", LastName = "Eldridge", EmailAddress  = "neldridge@domain.com",  EnrollmentDate = new DateTime(2018,2,20)},
+                new Student {ID = 2, FirstMidName = "Scott", LastName = "Lakhani", EmailAddress  = "slakhani@domain.com" ,  EnrollmentDate = new DateTime(2018,3,21)},
                 new Student {ID = 3, FirstMidName = "Camille", LastName = "Lozerone", EmailAddress  = "clozerone@domain.com",  EnrollmentDate = new DateTime(2018,4,22) },
                 new Student {ID = 4, FirstMidName = "John", LastName = "Papa", EmailAddress  = "jpapa@domain.com",  EnrollmentDate = new DateTime(2018,5,23) },
             };

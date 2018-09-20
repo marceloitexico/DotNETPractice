@@ -14,18 +14,49 @@ namespace DotNETPractice.Controllers
     /// </summary>
     public class StudentController : ApiController
     {
-        static List<Student> students = DataHelper.GenerateStudentsList();
+        private List<Student> students;
+            public List<Student> Students {
+            get
+            {
+                if (students == null)
+                {
+                    students = DataHelper.GenerateStudentsList();
+                }
+                return students;
+            }
+        }
+
         //http://localhost:65037/api/student , it also works with HttpResponseMessage,return Request.CreateResponse(HttpStatusCode.OK,students);
         public IHttpActionResult Get()
         {
-            //CReates an OKNegotiationAction Result, which implements IHttpActionResult
-            return Ok(students);
+            //Creates an OKNegotiationAction Result, which implements IHttpActionResult
+            return Ok(Students);
+        }
+        
+        [ActionName("GetScotts")]
+        [Route("api/student/Scotts")]
+        public IHttpActionResult GetScotts()
+        {
+            IEnumerable<Student> scotts = from s in Students
+                                          where s.FirstMidName == "Scott"
+                                          select s;
+            return Ok(scotts);
+        }
+
+
+        [Route("api/student/{name}")]
+        public IHttpActionResult GetByName(string name)
+        {
+            IEnumerable<Student> studentsByName = from s in Students
+                                          where s.FirstMidName == name
+                                          select s;
+            return Ok(studentsByName);
         }
 
         //http://localhost:65037/api/student?id=3
         public IHttpActionResult Get(int id)
         {
-            var student = students.FirstOrDefault(s => id == s.ID);
+            var student = Students.FirstOrDefault(s => id == s.ID);
             try
             {
                 if (null == student)
