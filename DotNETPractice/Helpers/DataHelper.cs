@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace EFCodeFirstTest.Helpers
 {
@@ -37,22 +36,6 @@ namespace EFCodeFirstTest.Helpers
                 new Course {CourseID = 5, Title = "Graphs Theory II", Credits = 12 },
             };
             return data;
-        }
-
-        public static XDocument GenerateXmlData()
-        {
-            //Convert to XML :
-            XDocument xDocument = new XDocument(
-            new XDeclaration("1.0", "UTF-8", "yes"),
-            new XElement("MESSAGE_CONTENT"),
-            new XElement("TEXT_MESSAGE"),
-            new XElement("MESSAGE_INDEX", 0),
-            new XElement("USER_TO"),
-            new XElement("CIML")
-            );
-            //This Works:
-            xDocument.Add(new XComment("This is a comment."));
-            return xDocument;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace EFApproaches.DAL.Entities
         {
             FirstMidName = firstMidName;
             LastName = lastName;
+            FullName = firstMidName + " " + lastName;
         }
         public int ID { get; set; }
         [Required]
@@ -22,13 +23,7 @@ namespace EFApproaches.DAL.Entities
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime EnrollmentDate { get; set; }
         public  string EmailAddress { get; set; }
-        public string FullName
-        {
-            get
-            {
-                return FirstMidName + " " + LastName;
-            }
-        }
+        public string FullName { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
 
         public virtual void GenerateEmailFromName(string domain)
